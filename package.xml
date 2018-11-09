@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rvizweb</name>
+  <version>0.0.0</version>
+  <description>RVizWeb: RViz on the browser</description>
+
+  <maintainer email="louise@openrobotics.org">Louise Poubel</maintainer>
+
+  <license>Apache 2</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rosbridge_server</build_depend>
+  <build_depend>roswww</build_depend>
+  <build_depend>tf2_web_republisher</build_depend>
+  <build_export_depend>rosbridge_server</build_export_depend>
+  <build_export_depend>roswww</build_export_depend>
+  <build_export_depend>tf2_web_republisher</build_export_depend>
+  <exec_depend>rosbridge_server</exec_depend>
+  <exec_depend>roswww</exec_depend>
+  <exec_depend>tf2_web_republisher</exec_depend>
+
+</package>

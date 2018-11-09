@@ -1,0 +1,21 @@
+{
+  "name": "rvizweb",
+  "authors": [
+    "Louise Poubel <louise@openrobotics.org>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "Apache 2",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ros-rviz": "jstnhuang/ros-rviz#^3.0.4",
+    "web-animations-js": "^2.3.1"
+  }
+}

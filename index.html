@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>ros-rviz Demo</title>
+    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="bower_components/ros-websocket/ros-websocket.html">
+    <link rel="import" href="bower_components/ros-rviz/ros-rviz.html">
+    <style>
+      html, body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+      }
+    </style>
+
+  </head>
+  <body>
+    <ros-websocket id="websocket"></ros-websocket>
+    <ros-rviz id="rviz"></ros-rviz>
+  </body>
+    <script>
+      document.body.style.opacity = 0; // Hide body to prevent FOUC
+      window.addEventListener('WebComponentsReady', function() {
+        document.body.style.opacity = 1;
+
+        var websocket = document.getElementById('websocket');
+        var rviz = document.getElementById('rviz');
+
+        websocket.addEventListener('connection', function() {
+          console.log('Connected to the websocket server.');
+          console.log(websocket.ros);
+          rviz.ros = websocket.ros;
+        });
+        websocket.connect();
+
+        rviz.addEventListener('websocket-url-changed', function(evt) {
+          console.log(evt.detail.value);
+          websocket.url = evt.detail.value;
+          websocket.connect();
+        });
+      });
+    </script>
+
+</html>
+
