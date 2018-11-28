@@ -15,6 +15,7 @@
   <build_export_depend>rosbridge_server</build_export_depend>
   <build_export_depend>roswww</build_export_depend>
   <build_export_depend>tf2_web_republisher</build_export_depend>
+  <exec_depend>interactive_marker_proxy</exec_depend>
   <exec_depend>rosbridge_server</exec_depend>
   <exec_depend>roswww</exec_depend>
   <exec_depend>tf2_web_republisher</exec_depend>

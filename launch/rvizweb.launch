@@ -16,6 +16,13 @@
   <!-- Set to false to prevent republishing TF -->
   <arg name="tf" default="true"/>
 
+  <!-- Set to false if you don't want to use interactive markers. -->
+  <arg name="interactive_markers" default="true"/>
+  <!-- Target frame for interactive markers. -->
+  <arg name="interactive_markers_target_frame" default="/base_link"/>
+  <!-- Topic for interactive markers. -->
+  <arg name="interactive_markers_topic" default="/basic_controls"/>
+
   <!-- Websocket bridge -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
     <arg name="port" value="$(arg websocket_port)" />
@@ -30,6 +37,13 @@
   <!-- TF2 republisher -->
   <group if="$(arg tf)">
     <node name="tf2_web_republisher" pkg="tf2_web_republisher" type="tf2_web_republisher" respawn="false" output="screen"/>
+  </group>
+
+  <group if="$(arg interactive_markers)">
+    <node pkg="interactive_marker_proxy" type="proxy" name="interactive_marker_proxy">
+      <remap from="target_frame" to="$(arg interactive_markers_target_frame)" />
+      <remap from="topic_ns" to="$(arg interactive_markers_topic)" />
+    </node>
   </group>
 
 </launch>
