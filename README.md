@@ -85,3 +85,34 @@ Let's try an example using a PR2 simulated on Gazebo.
 
 1. You should see the PR2 on the browser (it will be dark due to a texture issue).
 
+## Viewing interactive markers
+
+To view interactive markers, you will need an [interactive_marker_proxy](https://wiki.ros.org/interactive_marker_proxy) for
+each interactive marker server you want to run, specifying a target frame and topic.
+
+By default, RVizWeb will run one of these proxies using `/base_link` as target frame and `/basic_controls` as the topic.
+
+Let's see an example:
+
+1. Install `interactive_marker_tutorials`:
+
+        sudo apt install -y ros-kinetic-interactive-marker-tutorials
+
+1. Run the sample interactive marker server:
+
+        rosrun interactive_marker_tutorials basic_controls
+
+Launch RVizWeb as described in [Viewing URDF section](#viewing-urdf); this time click `+` and choose `Interactive markers`.
+You should see markers all around the viewer; you can modify their poses with the controls around them!
+
+The target frame and topic are configurable when launching the application, e.g.:
+
+    roslaunch rvizweb rvizweb.launch interactive_markers_target_frame:=/base_footprint interactive_markers_topic:=/advanced_controls
+
+If you need additional proxies, you can run them on separate consoles:
+
+    rosrun interactive_marker_proxy proxy topic_ns:=/your_topic target_frame:=/your_frame
+
+Finally, you can disable the proxy if you don't need it at all:
+
+    roslaunch rvizweb rvizweb.launch interactive_markers:=false
