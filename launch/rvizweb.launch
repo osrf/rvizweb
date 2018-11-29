@@ -23,6 +23,15 @@
   <!-- Topic for interactive markers. -->
   <arg name="interactive_markers_topic" default="/basic_controls"/>
 
+  <!-- Set to true if you want depth cloud support. -->
+  <arg name="depth_cloud" default="false"/>
+  <!-- Port for visualizing video streams. -->
+  <arg name="video_port" default="9999"/>
+  <!-- Depth image topic for depthcloud_encoder. -->
+  <arg name="depth_topic" default="/camera/depth/image_raw"/>
+  <!-- RGB image topic for depthcloud_encoder. -->
+  <arg name="rgb_topic" default="/camera/rgb/image_raw"/>
+
   <!-- Websocket bridge -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
     <arg name="port" value="$(arg websocket_port)" />
@@ -43,6 +52,18 @@
     <node pkg="interactive_marker_proxy" type="proxy" name="interactive_marker_proxy">
       <remap from="target_frame" to="$(arg interactive_markers_target_frame)" />
       <remap from="topic_ns" to="$(arg interactive_markers_topic)" />
+    </node>
+  </group>
+
+  <!-- Depth cloud -->
+  <group if="$(arg depth_cloud)">
+    <node pkg="web_video_server" type="web_video_server" name="web_video_server">
+      <param name="type" value="vp8"/>
+      <param name="port" value="$(arg video_port)"/>
+    </node>
+    <node pkg="depthcloud_encoder" type="depthcloud_encoder_node" name="depthcloud_encoder">
+      <param name="depth" value="$(arg depth_topic)"/>
+      <param name="rgb" value="$(arg rgb_topic)"/>
     </node>
   </group>
 
