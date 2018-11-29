@@ -48,6 +48,7 @@
     <node name="tf2_web_republisher" pkg="tf2_web_republisher" type="tf2_web_republisher" respawn="false" output="screen"/>
   </group>
 
+  <!-- Interactive markers -->
   <group if="$(arg interactive_markers)">
     <node pkg="interactive_marker_proxy" type="proxy" name="interactive_marker_proxy">
       <remap from="target_frame" to="$(arg interactive_markers_target_frame)" />
