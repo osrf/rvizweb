@@ -15,16 +15,8 @@ include_directories(
 
 # Copy needed files to www build folder
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www)
-configure_file(
-  ${CMAKE_CURRENT_SOURCE_DIR}/index.html
-  ${CMAKE_CURRENT_BINARY_DIR}/www/index.html
-  COPYONLY
-)
-configure_file(
-  ${CMAKE_CURRENT_SOURCE_DIR}/bower.json
-  ${CMAKE_CURRENT_BINARY_DIR}/www/bower.json
-  COPYONLY
-)
+configure_file(index.html www/index.html COPYONLY)
+configure_file(bower.json www/bower.json COPYONLY)
 
 # Install bower components
 execute_process(
