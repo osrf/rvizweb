@@ -13,33 +13,27 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+# Copy needed files to www build folder
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www)
+configure_file(index.html www/index.html COPYONLY)
+configure_file(bower.json www/bower.json COPYONLY)
+
+# Install bower components
 execute_process(
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}
-  COMMAND mkdir -p www
-)
-
-execute_process(
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/www
-
-  # Copy needed files
-  COMMAND cp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/index.html .
-  COMMAND cp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/bower.json .
-
-  # Install bower components
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
   COMMAND bower install
 )
 
+# Build components using polymer
 execute_process(
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/www
-
-  # Build components using polymer
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
   COMMAND polymer build --name www
 )
 
 install(
   DIRECTORY
     launch
-    ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/www/build/www
+    ${CMAKE_CURRENT_BINARY_DIR}/www/build/www
   DESTINATION
     ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
