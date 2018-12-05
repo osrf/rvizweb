@@ -21,7 +21,7 @@ configure_file(bower.json www/bower.json COPYONLY)
 # Install bower components
 execute_process(
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
-  COMMAND bower install
+  COMMAND bower install --allow-root
 )
 
 # Build components using polymer
