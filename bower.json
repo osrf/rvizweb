@@ -6,7 +6,7 @@
   "description": "",
   "main": "index.html",
   "license": "Apache 2",
-  "homepage": "",
+  "homepage": "https://github.com/osrf/polymer-ros-rviz",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "ros-rviz": "jstnhuang/ros-rviz#^3.0.4",
+    "ros-rviz": "osrf/polymer-ros-rviz#master",
     "web-animations-js": "^2.3.1"
   }
 }
