@@ -116,3 +116,29 @@ If you need additional proxies, you can run them on separate consoles:
 Finally, you can disable the proxy if you don't need it at all:
 
     roslaunch rvizweb rvizweb.launch interactive_markers:=false
+
+## Viewing depth clouds
+
+To view depth clouds, you will need [web_video_server](https://wiki.ros.org/web_video_server) and [depthcloud_encoder](https://wiki.ros.org/depthcloud_encoder) running.
+
+Here's a basic example using Turtlebot:
+
+1. Install `turtlebot_gazebo`:
+
+        sudo apt install -y ros-kinetic-turtlebot-gazebo
+
+1. Run `turtlebot_world` in Gazebo:
+
+        roslaunch turtlebot_gazebo turtlebot_world.launch
+
+1. Launch RVizWeb enabling depth clouds:
+
+        roslaunch rvizweb rvizweb.launch depth_cloud:=true
+
+Open RVizWeb as described in [Viewing URDF section](#viewing-urdf); click `+` and choose `Depth cloud`.
+You should see Turtlebot's depth cloud stream in the viewer.
+
+Under the hood, `depthcloud_encoder` is subscribing to depth and RGB image streams and combining them into a single topic (`/depthcloud_encoded`).
+You can change the default image stream sources like this:
+
+        roslaunch rvizweb rvizweb.launch depth_cloud:=true depth_topic:=/your_depth_topic rgb_topic:=/your_rgb_topic
