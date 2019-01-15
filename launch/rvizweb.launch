@@ -32,6 +32,11 @@
   <!-- RGB image topic for depthcloud_encoder. -->
   <arg name="rgb_topic" default="/camera/rgb/image_raw"/>
 
+  <!-- Configuration. -->
+  <arg name="config_file" default="$(find rvizweb)/config/configuration"/>
+
+  <param name="/rvizweb/global_config" type="str" textfile="$(find rvizweb)/config/configuration"/>
+
   <!-- Websocket bridge -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
     <arg name="port" value="$(arg websocket_port)" />
