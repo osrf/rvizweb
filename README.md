@@ -142,3 +142,19 @@ Under the hood, `depthcloud_encoder` is subscribing to depth and RGB image strea
 You can change the default image stream sources like this:
 
         roslaunch rvizweb rvizweb.launch depth_cloud:=true depth_topic:=/your_depth_topic rgb_topic:=/your_rgb_topic
+
+## Use custom configuration on startup
+
+To launch `rvizweb` with a custom configuration you will need to provide a JSON file as argument to the launchfile:
+
+```
+roslaunch rvizweb rvizweb.launch config_file:=/path/to/config_file.json
+```
+
+The easiest way of generating a configuration file is the following:
+- Launch `rvizweb` without any particular arguments, and open it in the browser.
+- Open the components you want to be opened on start, and edit `Global options` at will.
+- Click on `LOAD CONFIG` at the left panel to open the popup with the complete configuration file, and copy its contents to a local file.
+- Send that file as an argument when launching the application as shown above.
+
+**Note:** Editing `config/configuration.json` won't work if the application is not reinstalled; providing a separate custom file is recommended.
