@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "ros-rviz": "EndPointCorp/polymer-ros-rviz#9c4061476657724fa8900a1ee973748e3781035d",
+    "ros-rviz": "EndPointCorp/polymer-ros-rviz#8fc0bac2f87650b7aeedf454c3887dfbb1b94aa8",
     "web-animations-js": "^2.3.1"
   }
 }
