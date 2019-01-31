@@ -2,10 +2,7 @@
   "globalOptions": {
     "background": "#111111",
     "colladaLoader": "collada2",
-    "colladaServer": "http://localhost:8001/",
-    "fixedFrame": "/base_link",
-    "url": "ws://localhost:9090",
-    "videoServer": "http://localhost:9999"
+    "fixedFrame": "/base_link"
   },
   "sidebarOpened": true,
   "displays": []
