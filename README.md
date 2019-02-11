@@ -157,4 +157,7 @@ The easiest way of generating a configuration file is the following:
 - Click on `LOAD CONFIG` at the left panel to open the popup with the complete configuration file, and copy its contents to a local file.
 - Send that file as an argument when launching the application as shown above.
 
-**Note:** Editing `config/configuration.json` won't work if the application is not reinstalled; providing a separate custom file is recommended.
+**Notes:**
+- Editing `config/configuration.json` won't work if the application is not reinstalled; providing a separate custom file is recommended.
+- Empty or undefined fields for `globalOptions` will be set to default.
+
