@@ -18,12 +18,11 @@ This project makes use of the following:
         cd ~/ws/src
         git clone https://github.com/osrf/rvizweb/
 
-1. Install non-ROS dependencies:
+1. You will need Node.js, here's how to install it with nvm:
 
         curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
         . ~/.bashrc
         nvm install node
-        npm install -g bower polymer-cli
 
 1. Install ROS dependencies (assumes you already have ROS core):
 

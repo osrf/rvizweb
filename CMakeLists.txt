@@ -15,19 +15,20 @@ include_directories(
 
 # Copy needed files to www build folder
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www)
+configure_file(package.json www/package.json COPYONLY)
 configure_file(index.html www/index.html COPYONLY)
 configure_file(bower.json www/bower.json COPYONLY)
 
-# Install bower components
+# Install webapp build tools
 execute_process(
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
-  COMMAND bower install --allow-root
+  COMMAND npm install
 )
 
-# Build components using polymer
+# Build the webapp with bower and polymer
 execute_process(
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/www
-  COMMAND polymer build --name www
+  COMMAND npm run build
 )
 
 install(
