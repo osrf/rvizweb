@@ -160,3 +160,24 @@ The easiest way of generating a configuration file is the following:
 - Editing `config/configuration.json` won't work if the application is not reinstalled; providing a separate custom file is recommended.
 - Empty or undefined fields for `globalOptions` will be set to default.
 
+## RVizWeb in a Docker container
+
+To run `RVizWeb` inside a container use the scripts to build and run the application:
+
+1. Clone the repository:
+
+        git clone https://github.com/osrf/rvizweb ~/rvizweb
+
+1. Build the docker image:
+
+        ~/rvizweb/docker/build.sh
+
+1. Run the container:
+
+        ~/rvizweb/docker/run.sh
+
+1. Once inside the container, launch `RVizWeb`:
+
+        roslaunch rvizweb rvizweb.launch
+
+The network will be shared with the host by default.
