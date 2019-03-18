@@ -10,4 +10,7 @@ RUN git clone https://github.com/osrf/rvizweb/ src/rvizweb
 RUN rosdep install --from-paths src --ignore-src -r -y
 RUN . /opt/ros/kinetic/setup.sh && . ~/.bashrc && catkin_make install
 
+# Clear apt cache.
+RUN apt clean
+
 ENTRYPOINT ["/bin/bash", "-c", "source /rvizweb_ws/install/setup.bash && /bin/bash"]
