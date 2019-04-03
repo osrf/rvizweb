@@ -1,4 +1,4 @@
-FROM ros:kinetic
+FROM ros:melodic
 
 # Install rvizweb
 WORKDIR /rvizweb_ws
