@@ -9,6 +9,7 @@
   <license>Apache 2</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend version_gte="8.15">nodejs</buildtool_depend>
   <build_depend>rosbridge_server</build_depend>
   <build_depend>roswww</build_depend>
   <build_depend>tf2_web_republisher</build_depend>
