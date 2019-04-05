@@ -5,7 +5,8 @@ RUN apt update && apt install -y curl && curl -sL https://deb.nodesource.com/set
 
 # Install rvizweb.
 WORKDIR /rvizweb_ws
-RUN git clone https://github.com/osrf/rvizweb/ src/rvizweb
+ARG rvizweb_branch=master
+RUN git clone https://github.com/osrf/rvizweb/ src/rvizweb -b ${rvizweb_branch}
 RUN rosdep install --from-paths src --ignore-src -r -y
 RUN . /opt/ros/kinetic/setup.sh && catkin_make install
 
