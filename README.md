@@ -62,15 +62,15 @@ are currently installed in the system to the following address by default:
 This means that if you have robot description files installed, all these resources
 will be automatically served and are ready to be used by RVizWeb.
 
-Let's try an example using a PR2 simulated on Gazebo.
+Let's try an example using a Turtlebot simulated on Gazebo (using `kinetic` distro as example).
 
-1. Install the PR2 Gazebo package:
+1. Install the Turtlebot Gazebo package:
 
-        sudo apt install -y ros-kinetic-pr2-gazebo
+        sudo apt install -y ros-kinetic-turtlebot-gazebo
 
 1. Launch the simulation:
 
-        roslaunch pr2_gazebo pr2_empty_world.launch
+        roslaunch turtlebot_gazebo turtlebot_world.launch
 
 1. Launch RVizWeb:
 
@@ -82,7 +82,9 @@ Let's try an example using a PR2 simulated on Gazebo.
 
 1. On the UI, click on the `+` and choose "Robot model".
 
-1. You should see the PR2 on the browser (it will be dark due to a texture issue).
+1. You should see the Turtlebot on the browser.
+
+Note: loading models using `TIFF` files as resources is not supported; try using `PNG` instead.
 
 ## Viewing interactive markers
 
