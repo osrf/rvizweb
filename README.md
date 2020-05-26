@@ -18,13 +18,11 @@ This project makes use of the following:
         cd ~/ws/src
         git clone https://github.com/osrf/rvizweb/
 
-1. You will need Node.js, here's how to install it with nvm:
+1. You will need the LTS version of Node.js. Add the PPA so that `rosdep` can fetch it:
 
-        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
-        . ~/.bashrc
-        nvm install node
+        curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 
-1. Install ROS dependencies (assumes you already have ROS core):
+1. Install ROS and system dependencies (assumes you already have ROS core):
 
         cd ~/ws
         rosdep install --from-paths src --ignore-src -r -y
