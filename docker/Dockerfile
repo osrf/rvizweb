@@ -1,6 +1,3 @@
-FROM ros:kinetic
-
-
 FROM ros:melodic
 
 # Basic tools and dependencies and nodejs LTS PPA.
