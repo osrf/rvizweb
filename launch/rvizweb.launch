@@ -38,9 +38,11 @@
   <param name="/rvizweb/global_config" type="str" textfile="$(arg config_file)"/>
 
   <!-- Websocket bridge -->
+  <!--
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
     <arg name="port" value="$(arg websocket_port)" />
   </include>
+  -->
 
   <!-- Packages server -->
   <include file="$(find roswww)/launch/roswww.launch">
@@ -49,9 +51,11 @@
   </include>
 
   <!-- TF2 republisher -->
+  <!--
   <group if="$(arg tf)">
     <node name="tf2_web_republisher" pkg="tf2_web_republisher" type="tf2_web_republisher" respawn="false" output="screen"/>
   </group>
+  -->
 
   <!-- Interactive markers -->
   <group if="$(arg interactive_markers)">
