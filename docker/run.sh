@@ -2,4 +2,4 @@
 
 IMAGE=rvizweb
 
-docker run -it --privileged --rm --network="host" "${IMAGE}"
+docker run -d --privileged --rm --network="host" "${IMAGE}"
