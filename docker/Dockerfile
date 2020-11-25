@@ -1,12 +1,10 @@
 FROM ros:melodic
 
-# Basic tools and dependencies and nodejs LTS PPA.
-RUN apt update && apt install -y curl && curl -sL https://deb.nodesource.com/setup_8.x | bash -
-
 # Install rvizweb.
-WORKDIR /rvizweb_ws
-ARG rvizweb_branch=master
-RUN git clone https://github.com/Sausy/rvizweb.git src/rvizweb -b ${rvizweb_branch} && \
+RUN apt update && apt install -y curl && curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    mkdir /rvizweb_ws && \
+    cd /rvizweb_ws && \
+    git clone https://github.com/Sausy/rvizweb.git src/rvizweb && \
     rosdep install --from-paths src --ignore-src -r -y && \
     . /opt/ros/melodic/setup.sh && catkin_make install && \
     apt-get clean
