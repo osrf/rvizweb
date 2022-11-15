@@ -2,4 +2,4 @@
 
 IMAGE=rvizweb
 
-docker run -it --privileged --rm --network="host" "${IMAGE}"
+docker run -d --privileged --rm --name "sausy/rvizweb" -t "amd64" --network="host" "${IMAGE}"
